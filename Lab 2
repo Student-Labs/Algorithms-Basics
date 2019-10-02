@@ -1,0 +1,36 @@
+Singly Linked List Library
+
+Library for creating singly linked list. 
+All the details about linked list are here: https://en.wikipedia.org/wiki/Linked_list#Singly_linked_list
+
+Library interface: 
+
+1. Initializing new list
+Call: list.init(10, 20, 30, 40, 50) => list = [10, 20, 30, 40, 50]
+
+2. Removing particular number
+Call: list.delete(30) => list = [10, 20, 40, 50]
+
+3. Appending element to the end
+Call: list.append(25) => list = [10, 20, 30, 40, 50, 25]
+
+4. Removing "n" last elements
+Call: list.trim(2) => list = [10, 20, 30]
+
+5. Counting number of elements
+Call: list.count()
+
+6. Sorting list (ascending/decending) using QuickSort algorithm from the previous lab
+Call: list.sort() => list = [10, 20, 30, 40, 50]
+Call: list.sortDescending() = list = [50, 40, 30, 20, 10]
+
+7. Insert new element at the particular position
+Call: list.insert(25, 2) => insert 25 at the 2 position => list = [10, 25, 20, 30, 40, 50]
+
+8. Reverse list
+Call: list.reverse() => list = [50, 40, 30, 20, 10]
+
+
+Example is here (https://stackabuse.com/linked-lists-in-detail-with-python-examples-single-linked-lists/)
+
+Please don't just copy-paste it. Get the main idea and implement it by yourself using link above only for supporting.
