@@ -7,22 +7,22 @@ def readArrayFromFile(arr):
         arr = arr.split()
         print(len(arr))
         return arr
-def quicksort(nums):
-        if len(nums) <= 1:
-            return nums
+def quicksort(arr):
+        if len(arr) <= 1:
+            return arr
         else:
-            q = random.choice(nums)
-            s_nums = []
-            m_nums = []
-            e_nums = []
-            for n in nums:
+            q = random.choice(arr)
+            sArr = []
+            mArr = []
+            eArr = []
+            for n in arr:
                 if n < q:
-                    s_nums.append(n)
+                    sArr.append(n)
                 elif n > q:
-                    m_nums.append(n)
+                    mArr.append(n)
                 else:
-                    e_nums.append(n)
-            return quicksort(s_nums) + e_nums + quicksort(m_nums)
+                    eArr.append(n)
+            return quicksort(sArr) + eArr + quicksort(mArr)
 
 numbersArr = readArrayFromFile(numbersArr)
 sortedArr = quicksort(numbersArr)
