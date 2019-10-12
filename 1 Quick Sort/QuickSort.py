@@ -1,17 +1,20 @@
-numbersArr = [2,5,1,6,4,15,3]
-def quicksort(numbersArr):
-	randomNumber = random.choice(numbersArr)
-	lowArr = []
-	nArr = []
-	highArr = []
-	for n in numbersArr:
-		if randomNumber > n :
-			n.append(lowArr)
-		elif randomNumber < n:
-			n.append(highArr)
-		else :
-			n.append(nArr)
-	numbersArr = quicksort(lowArr) + nArr + quicksort(highArr)
-	return numbersArr
-numbers=quicksort(numbersArr)
-print(numbers)
+import random 
+numbersArr = []
+def quicksort(nums):
+        if len(nums) <= 1:
+            return nums
+        else:
+            q = random.choice(nums)
+            s_nums = []
+            m_nums = []
+            e_nums = []
+            for n in nums:
+                if n < q:
+                    s_nums.append(n)
+                elif n > q:
+                    m_nums.append(n)
+                else:
+                    e_nums.append(n)
+            return quicksort(s_nums) + e_nums + quicksort(m_nums)
+sortedArr = quicksort(numbersArr)
+print (sortedArr)
