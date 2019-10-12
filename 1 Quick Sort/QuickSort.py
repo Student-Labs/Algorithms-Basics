@@ -1,5 +1,12 @@
 import random 
 numbersArr = []
+def readArrayFromFile(arr):
+        file = input("Введите путь к файлу:")
+        arr =open(file)
+        arr = arr.read()
+        arr = arr.split()
+        print(len(arr))
+        return arr
 def quicksort(nums):
         if len(nums) <= 1:
             return nums
@@ -16,8 +23,7 @@ def quicksort(nums):
                 else:
                     e_nums.append(n)
             return quicksort(s_nums) + e_nums + quicksort(m_nums)
-def readArrayFromFile(pathToFile):
-    file = pathToFile.read().split(",")
-    return file
+
+numbersArr = readArrayFromFile(numbersArr)
 sortedArr = quicksort(numbersArr)
 print (sortedArr)
