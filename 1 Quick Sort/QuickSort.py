@@ -16,5 +16,8 @@ def quicksort(nums):
                 else:
                     e_nums.append(n)
             return quicksort(s_nums) + e_nums + quicksort(m_nums)
+def readArrayFromFile(pathToFile):
+    file = pathToFile.read().split(",")
+    return file
 sortedArr = quicksort(numbersArr)
 print (sortedArr)
