@@ -1,12 +1,23 @@
 import random 
 numbersArr = []
 def readArrayFromFile(arr):
-        file = input("Введите путь к файлу:")
-        arr =open(file)
-        arr = arr.read()
-        arr = arr.split()
+        path = input("Введите путь к файлу:")
+        file = open(path)
+        text = ""
+        for line in file:
+            text = text + line
+        arr = toIntArray(text.split())
         print(len(arr))
         return arr
+
+def toIntArray(arr):
+    intArr = []
+    for symbol in arr:
+        digit = int(symbol)
+        intArr.append(digit)
+    return  intArr
+
+
 def quicksort(arr):
         if len(arr) <= 1:
             return arr
