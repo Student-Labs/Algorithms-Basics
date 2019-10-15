@@ -1,7 +1,8 @@
-import random 
+import random
+import time
 numbersArr = []
 def readArrayFromFile(arr):
-        path = input("Введите путь к файлу:")
+        path = input("Inter path to the file:")
         file = open(path)
         text = ""
         for line in file:
@@ -19,22 +20,23 @@ def toIntArray(arr):
 
 
 def quicksort(arr):
+        startTime = time.time()
         if len(arr) <= 1:
-            return arr
+                return arr
         else:
-            q = random.choice(arr)
-            sArr = []
-            mArr = []
-            eArr = []
-            for n in arr:
-                if n < q:
-                    sArr.append(n)
-                elif n > q:
-                    mArr.append(n)
-                else:
-                    eArr.append(n)
-            return quicksort(sArr) + eArr + quicksort(mArr)
-
+                q = random.choice(arr)
+                sArr = []
+                mArr = []
+                eArr = []
+                for n in arr:
+                        if n < q:
+                                sArr.append(n)
+                        elif n > q:
+                                mArr.append(n)
+                        else:
+                                eArr.append(n)
+        return quicksort(sArr) + eArr + quicksort(mArr)
+time = time.process_time()
 numbersArr = readArrayFromFile(numbersArr)
 sortedArr = quicksort(numbersArr)
 print (sortedArr)
