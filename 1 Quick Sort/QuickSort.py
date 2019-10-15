@@ -1,15 +1,32 @@
 import random
 import time
+import os
 numbersArr = []
-def readArrayFromFile(arr):
-        path = input("Inter path to the file:")
-        file = open(path)
+path = input("Введите путь к файлу:")
+
+def readArrayFromFile(arr, path):
+        file = open(path+".py")
         text = ""
         for line in file:
             text = text + line
         arr = toIntArray(text.split())
         print(len(arr))
         return arr
+
+def makeSortedArr(sortedArr, path):
+    fileName = os.path.basename(path)
+    reversedFileName = reverseFileName(fileName)
+    file = open((reversedFileName+".py"),"tw")
+    file.write(str(sortedArr))
+    file.close()
+
+def reverseFileName(string):
+        invertedString = ""
+        length = len(string)
+        for index in range(0, length):
+                invertedString = invertedString + string[length-index-1]
+        return invertedString
+
 
 def toIntArray(arr):
     intArr = []
@@ -18,25 +35,25 @@ def toIntArray(arr):
         intArr.append(digit)
     return  intArr
 
-
 def quicksort(arr):
-        startTime = time.time()
         if len(arr) <= 1:
-                return arr
+            return arr
         else:
-                q = random.choice(arr)
-                sArr = []
-                mArr = []
-                eArr = []
-                for n in arr:
-                        if n < q:
-                                sArr.append(n)
-                        elif n > q:
-                                mArr.append(n)
-                        else:
-                                eArr.append(n)
-        return quicksort(sArr) + eArr + quicksort(mArr)
-time = time.process_time()
-numbersArr = readArrayFromFile(numbersArr)
+            q = random.choice(arr)
+            sArr = []
+            mArr = []
+            eArr = []
+            for n in arr:
+                if n < q:
+                    sArr.append(n)
+                elif n > q:
+                    mArr.append(n)
+                else:
+                    eArr.append(n)
+            return quicksort(sArr) + eArr + quicksort(mArr)
+
+numbersArr = readArrayFromFile(numbersArr,path)
 sortedArr = quicksort(numbersArr)
+sortedArr1 = makeSortedArr(sortedArr,path)
+print(str(time.process_time())+" Seconds")
 print (sortedArr)
