@@ -2,7 +2,7 @@ import random
 import time
 import os
 numbersArr = []
-path = input("Введите путь к файлу:")
+path = input("Inter path to the file:")
 
 def readArrayFromFile(arr, path):
         file = open(path+".py")
