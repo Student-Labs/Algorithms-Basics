@@ -4,19 +4,19 @@ import os
 numbersArr = []
 path = input("Inter path to the file:")
 
-def readArrayFromFile(arr, path):
+def readArrayFromFile( path):
         file = open(path+".py")
         text = ""
         for line in file:
             text = text + line
-        arr = toIntArray(text.split())
-        print(len(arr))
-        return arr
+        numbersArr = toIntArray(text.split())
+        print(len(numbersArr))
+        return numbersArr
 
-def makeSortedArr(sortedArr, path):
+def makeSortedArr(arr, path):
     fileName = os.path.basename(path)
     reversedFileName = reverseFileName(fileName)
-    file = open((reversedFileName+".py"),"tw")
+    file = open((fileName+".py"),"tw")
     file.write(str(sortedArr))
     file.close()
 
@@ -27,7 +27,6 @@ def reverseFileName(string):
                 invertedString = invertedString + string[length-index-1]
         return invertedString
 
-
 def toIntArray(arr):
     intArr = []
     for symbol in arr:
@@ -35,42 +34,40 @@ def toIntArray(arr):
         intArr.append(digit)
     return  intArr
 
-def quicksort(arr):
+def quicksort(arr,direction):
         if len(arr) <= 1:
-            return arr
+                return arr
         else:
-            randomNum = random.choice(arr)
-            sArr = []
-            mArr = []
-            eArr = []
-            for element in arr:
-                if element < randomNum:
-                    sArr.append(element)
-                elif element > randomNum:
-                    mArr.append(element)
-                else:
-                    eArr.append(element)
-            return quicksort(sArr) + eArr + quicksort(mArr)
-def reversedQuickSort(arr):
-		if len(arr)<=1:
-			return arr
-		else:
-			randomNum = random.choice(arr)
-			sArr = []
-			mArr = []
-			eArr = []
-			for element in arr:
-				if element<randomNum:
-					mArr.append(element)
-				elif element>randomNum:
-					sArr.append(element)
-				else :
-					eArr.append(element)
-			return reversedQuickSort(mArr)+eArr+reversedQuickSort(sArr)
+                randomNum = random.choice(arr)
+                sArr = []
+                mArr = []
+                eArr = []
+                if direction == "+":
+                        for element in arr:
+                                if element < randomNum:
+                                        sArr.append(element)
+                                elif element > randomNum:
+                                        mArr.append(element)
+                                else:
+                                        eArr.append(element)
+                        return quicksort(sArr,"+") + eArr + quicksort(mArr,"+")
+                elif direction == "-":
+                        for element in arr:
+                                if element<randomNum:
+                                        mArr.append(element)
+                                elif element>randomNum:
+                                        sArr.append(element)
+                                else :
+                                        eArr.append(element)
+                        return quickSort(mArr,"-") + eArr + quickSort(sArr,"-")
 numbersArr = readArrayFromFile(numbersArr,path)
-sortedArr = quicksort(numbersArr)
-sortedArr1 = makeSortedArr(sortedArr,path)
-reverseSortedArr = reversedQuickSort(numbersArr)
+
+sortedArr = quicksort(numbersArr,"+")
+
+reverseSortedArr = quickSort(numbersArr,"-")
+
+sortedArrFile = makeSortedArr(sortedArr,path)
+
 print(str(time.process_time())+" Seconds")
 print (sortedArr)
 print(reverseSortedArr)
