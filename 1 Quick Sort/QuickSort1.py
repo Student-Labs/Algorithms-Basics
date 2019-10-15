@@ -13,15 +13,14 @@ def readArrayFromFile(path):
         print(len(numbers))
         return numbers
 
-def makeSortedArr(arr, path):
+def saveSortedArr(arr, path):
         fileName = os.path.basename(path)
-        reversedFileName = reverseFileName(fileName)
-        if arr == (ascendingSortedArr):
+        if arr == ascendingSortedArr:
                 fileName = reverseFileName(fileName)
                 file = open((fileName+".py"),"tw")
                 file.write(str(arr))
                 file.close()
-        elif arr == (desendingSortedArr):
+        elif arr == desendingSortedArr:
                 fileName = "Sorted " + fileName + ".py"
                 file = open((fileName),"tw")
                 file.write(str(arr))
