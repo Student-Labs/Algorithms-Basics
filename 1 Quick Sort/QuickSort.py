@@ -39,21 +39,38 @@ def quicksort(arr):
         if len(arr) <= 1:
             return arr
         else:
-            q = random.choice(arr)
+            randomNum = random.choice(arr)
             sArr = []
             mArr = []
             eArr = []
-            for n in arr:
-                if n < q:
-                    sArr.append(n)
-                elif n > q:
-                    mArr.append(n)
+            for element in arr:
+                if element < randomNum:
+                    sArr.append(element)
+                elif element > randomNum:
+                    mArr.append(element)
                 else:
-                    eArr.append(n)
+                    eArr.append(element)
             return quicksort(sArr) + eArr + quicksort(mArr)
-
+def reversedQuickSort(arr):
+		if len(arr)<=1:
+			return arr
+		else:
+			randomNum = random.choice(arr)
+			sArr = []
+			mArr = []
+			eArr = []
+			for element in arr:
+				if element<randomNum:
+					mArr.append(element)
+				elif element>randomNum:
+					sArr.append(element)
+				else :
+					eArr.append(element)
+			return reversedQuickSort(mArr)+eArr+reversedQuickSort(sArr)
 numbersArr = readArrayFromFile(numbersArr,path)
 sortedArr = quicksort(numbersArr)
 sortedArr1 = makeSortedArr(sortedArr,path)
+reverseSortedArr = reversedQuickSort(numbersArr)
 print(str(time.process_time())+" Seconds")
 print (sortedArr)
+print(reverseSortedArr)
