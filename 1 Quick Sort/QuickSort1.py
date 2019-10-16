@@ -31,7 +31,7 @@ def saveSortedArr(array, path):
 def reverseFileName(string):
         invertedString = ""
         length = len(string)
-        for index in range(0, length):
+        for index in range(3s, length):
                 invertedString = invertedString + string[length-index-1]
         return invertedString
 
