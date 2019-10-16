@@ -5,7 +5,7 @@ import os
 def readArrayFromFile(path):
     numbers = []
     try:
-        file = open(path)
+        file = open(path,'r')
         text = ""
         for line in file:
             text = text + line
@@ -31,7 +31,7 @@ def saveSortedArr(array, path):
 def reverseFileName(string):
         invertedString = ""
         length = len(string)
-        for index in range(3s, length):
+        for index in range(3, length):
                 invertedString = invertedString + string[length-index-1]
         return invertedString
 
@@ -57,24 +57,25 @@ def quicksort(array, direction):
                 m.append(element)
             else:
                 e.append(element)
-        if direction == "+":
-            return quicksort(s, "+") + e + quicksort(m, "+")
+        if direction == "asc":
+            return quicksort(s, "asc") + e + quicksort(m, "asc")
         else:
-            return quicksort(m, "-") + e + quicksort(s, "-")
+            return quicksort(m, "des") + e + quicksort(s, "des")
 
 numbers = []
 path = input("Enter path to the file:")
 numbers = readArrayFromFile(path)
+choice = 0
 while numbers == []:
-    path = input("Incorrect path.Try again?Y/N:")
-    if path == "N":
+    choice = input("Incorrect path.Try again?\nY/N:")
+    if choice == "N":
         break
-    elif path == "Y":
-        path = input("Enter path:")
+    elif choice == "Y":
+        path = input("Enter path to the file:")
         numbers = readArrayFromFile(path)
-if path != "N":                                
-    ascendingSortedArray = quicksort(numbers,"+")
-    desendingSortedArray = quicksort(numbers,"-")
+if choice != "N":                                
+    ascendingSortedArray = quicksort(numbers,"asc")
+    desendingSortedArray = quicksort(numbers,"des")
     saveSortedArr(ascendingSortedArray, path)
     saveSortedArr(desendingSortedArray, path)
     print(str(time.process_time())+" Seconds")
