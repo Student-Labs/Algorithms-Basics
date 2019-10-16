@@ -6,16 +6,25 @@ def readArrayFromFile(path):
     numbers = []
     try:
         file = open(path,'r')
+        file = file.read()
+        file = file.split(",")
+        print(file)
+        print (file)
         text = ""
         for line in file:
             text = text + line
         numbers = toIntArray(text.split())
-        print(len(numbers))
+        if len(numbers) == 0: 
+            return[]   
         return numbers 
     except FileNotFoundError:
         print("File does not exist")
-        return[] 
+        return["Incorrect path"]
+    except ValueError:
+        print("Could not convert data to an integer")
+        return ["Incorrect path"]
 def saveSortedArr(array, path):
+    if array != []:
         fileName = os.path.basename(path)
         if array == ascendingSortedArray:
                 fileName = reverseFileName(fileName)
@@ -66,18 +75,21 @@ numbers = []
 path = input("Enter path to the file:")
 numbers = readArrayFromFile(path)
 choice = 0
-while numbers == []:
+while numbers == ["Incorrect path"]:
     choice = input("Incorrect path.Try again?\nY/N:")
     if choice == "N":
         break
     elif choice == "Y":
         path = input("Enter path to the file:")
         numbers = readArrayFromFile(path)
-if choice != "N":                                
-    ascendingSortedArray = quicksort(numbers,"asc")
-    desendingSortedArray = quicksort(numbers,"des")
-    saveSortedArr(ascendingSortedArray, path)
-    saveSortedArr(desendingSortedArray, path)
-    print(str(time.process_time())+" Seconds")
-    print (ascendingSortedArray)
-    print(desendingSortedArray)
+if choice != "N":
+    if numbers != []:
+        ascendingSortedArray = quicksort(numbers,"asc")
+        desendingSortedArray = quicksort(numbers,"des")
+        saveSortedArr(ascendingSortedArray, path)
+        saveSortedArr(desendingSortedArray, path)
+        print(str(time.process_time())+" Seconds")
+        print (ascendingSortedArray)
+        print(desendingSortedArray)
+if numbers == []:
+    print("File is empty")
