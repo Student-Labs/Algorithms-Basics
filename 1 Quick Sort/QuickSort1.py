@@ -8,15 +8,13 @@ def readArrayFromFile(path):
         file = open(path,'r')
         file = file.read()
         file = file.split(",")
-        print(file)
-        print (file)
         text = ""
         for line in file:
             text = text + line
-        numbers = toIntArray(text.split())
-        if len(numbers) == 0: 
-            return[]   
-        return numbers 
+        numbers = toInt(text.split())
+        if len(numbers) == 0:
+            return numbers
+        return numbers   
     except FileNotFoundError:
         print("File does not exist")
         return["Incorrect path"]
@@ -27,29 +25,27 @@ def saveSortedArr(array, path):
     if array != []:
         fileName = os.path.basename(path)
         if array == ascendingSortedArray:
-                fileName = reverseFileName(fileName)
-                file = open((fileName+".py"),"tw")
+                fileName = "Sorted "+ fileName
+                file = open((fileName),"tw")
                 file.write(str(array))
                 file.close()
         elif array == desendingSortedArray:
-                fileName = "Sorted " + fileName + ".py"
+                fileName = "Reversed sorted " + fileName 
                 file = open((fileName),"tw")
                 file.write(str(array))
                 file.close()
 
-def reverseFileName(string):
-        invertedString = ""
-        length = len(string)
-        for index in range(3, length):
-                invertedString = invertedString + string[length-index-1]
-        return invertedString
-
-def toIntArray(array):
+def toInt(array):
     intArray = []
     for symbol in array:
-        digit = int(symbol)
-        intArray.append(digit)
-    return  intArray
+        if symbol in range(-99999,99999):
+            print (symbol)
+            digit = int(symbol)
+            intArray.append(digit)
+            return  intArray
+        else:
+            print("Numbers in array are very big")
+            return ["Incorrect path"]
 
 def quicksort(array, direction):
     if len(array) <= 1:
@@ -75,6 +71,9 @@ numbers = []
 path = input("Enter path to the file:")
 numbers = readArrayFromFile(path)
 choice = 0
+while numbers == []:
+    path = input("File is empty.Please try again\nEnter path to th file:")
+    numbers = readArrayFromFile(path)
 while numbers == ["Incorrect path"]:
     choice = input("Incorrect path.Try again?\nY/N:")
     if choice == "N":
@@ -82,14 +81,15 @@ while numbers == ["Incorrect path"]:
     elif choice == "Y":
         path = input("Enter path to the file:")
         numbers = readArrayFromFile(path)
+        
 if choice != "N":
     if numbers != []:
-        ascendingSortedArray = quicksort(numbers,"asc")
-        desendingSortedArray = quicksort(numbers,"des")
-        saveSortedArr(ascendingSortedArray, path)
-        saveSortedArr(desendingSortedArray, path)
-        print(str(time.process_time())+" Seconds")
-        print (ascendingSortedArray)
-        print(desendingSortedArray)
-if numbers == []:
-    print("File is empty")
+        if numbers != "Incorrect path":
+            ascendingSortedArray = quicksort(numbers,"asc")
+            desendingSortedArray = quicksort(numbers,"des")
+            saveSortedArr(ascendingSortedArray, path)
+            saveSortedArr(desendingSortedArray, path)
+            print(str(time.process_time())+" Seconds")
+            print (ascendingSortedArray)
+            print(desendingSortedArray)
+
