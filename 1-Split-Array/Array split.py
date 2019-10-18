@@ -12,29 +12,27 @@ def splitArray(array, arrayType):
 			return positive
 		else:
 			return negative
-			
 	except ValueError:
-		return error
+		array.remove(element)
+		return String
 positive = []
 negative = []
 error = 0
+String = 0
 bull = True
 array = (input("Enter numbers:")).split(",")
-positive = splitArray(array, "+")
+positive = splitArray(array, "+")	
 negative = splitArray(array, "-")
+if positive == String:
+        positive = splitArray(array, "+")
+        negative = splitArray(array, "-")
+        
 while bull:
-	if positive != error:
-		if negative != error:
-				print(len(positive))
-				print(sorted(positive))
-				print(len(negative))
-				print(sorted(negative))
-				bull = False
-	else :
-		choice = input("Could not convert data to an integer.Try again?\nY/N:")
-		if choice  == "Y":
-			array = (input("Enter numbers:")).split(",")
-			positive = splitArray(array, "+")
-			negative = splitArray(array, "-")
-		if choice == "N":
-			break
+	if positive != []:
+		print(len(positive))
+		print(sorted(positive))
+	if negative != []:
+		print(len(negative))
+		print(sorted(negative))
+	bull = False
+		
