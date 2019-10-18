@@ -23,7 +23,7 @@ bull = True
 array = (input("Enter numbers:")).split(",")
 positive = splitArray(array, "+")	
 negative = splitArray(array, "-")
-if positive == String:
+while positive == String:
         positive = splitArray(array, "+")
         negative = splitArray(array, "-")
         
