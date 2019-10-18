@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 def splitArray(array, arrayType):
 	positive = []
 	negative = []
@@ -9,33 +8,10 @@ def splitArray(array, arrayType):
 				positive.append(element)
 			elif element < 0:
 				negative.append(element)
-=======
-array = (input("Enter numbers:")).split(",")
-positive = []
-negative = []
-error = 0
-def splitArray(array, arrayType):
-
-	while error == 0:
-		print(error)
-		positive = []
-		negative = []
-		try :
-			for element in array:
-				element = int(element)
-				if element >= 0:
-					positive.append(element)
-				if element < 0:
-					negative.append(element)
-		except ValueError:
-			print("Something went wrong.")
-			return error == 1
->>>>>>> Stashed changes
 		if arrayType == "+":
 			return positive
 		else:
 			return negative
-<<<<<<< Updated upstream
 			
 	except ValueError:
 		return error
@@ -62,14 +38,3 @@ while bull:
 			negative = splitArray(array, "-")
 		if choice == "N":
 			break
-
-=======
-if error != 1:
-        positive = splitArray(array, "+")
-        negative = splitArray(array, "-")
-        print(len(positive))
-        print(positive)
-        print(len(negative))
-        print(negative)
->>>>>>> Stashed changes
-		
