@@ -19,7 +19,6 @@ positive = []
 negative = []
 error = 0
 String = 0
-bull = True
 array = (input("Enter numbers:")).split(",")
 positive = splitArray(array, "+")	
 negative = splitArray(array, "-")
@@ -27,12 +26,10 @@ while positive == String:
         positive = splitArray(array, "+")
         negative = splitArray(array, "-")
         
-while bull:
-	if positive != []:
-		print(len(positive))
-		print(sorted(positive))
-	if negative != []:
-		print(len(negative))
-		print(sorted(negative))
-	bull = False
+if positive != []:
+	print(len(positive))
+	print(sorted(positive))
+if negative != []:
+	print(len(negative))
+	print(sorted(negative))
 		
