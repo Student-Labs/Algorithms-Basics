@@ -12,8 +12,9 @@ def readArrayFromFile(path):
         for line in file:
             text = text + line
         numbers = toInt(text.split())
-        if len(numbers) == 0:
-            return numbers
+        if numbers == []:
+            print("File if empty.")
+            return ["Incorrect path"]
         return numbers   
     except FileNotFoundError:
         print("File does not exist")
@@ -21,6 +22,12 @@ def readArrayFromFile(path):
     except ValueError:
         print("Could not convert data to an integer")
         return ["Incorrect path"]
+    except PermissionError:
+        print("Something went wrong.")
+        return ["Incorrect path"]
+    except OSError:
+        print("Something went wrong.")
+        return["Incorrect path"]
 def saveSortedArr(array, path):
     if array != []:
         fileName = os.path.basename(path)
@@ -36,6 +43,8 @@ def saveSortedArr(array, path):
                 file.close()
 
 def toInt(array):
+    if array == []:
+        return array 
     intArray = []
     for symbol in array:
         if symbol in range(-99999,99999):
@@ -71,17 +80,17 @@ numbers = []
 path = input("Enter path to the file:")
 numbers = readArrayFromFile(path)
 choice = 0
-while numbers == []:
-    path = input("File is empty.Please try again\nEnter path to th file:")
-    numbers = readArrayFromFile(path)
 while numbers == ["Incorrect path"]:
-    choice = input("Incorrect path.Try again?\nY/N:")
+    choice = input("Try again?\nY/N:")
     if choice == "N":
         break
     elif choice == "Y":
         path = input("Enter path to the file:")
         numbers = readArrayFromFile(path)
-        
+while numbers == []:
+    path = input("Enter path to the file:")
+    numbers = readArrayFromFile(path)
+         
 if choice != "N":
     if numbers != []:
         if numbers != "Incorrect path":
