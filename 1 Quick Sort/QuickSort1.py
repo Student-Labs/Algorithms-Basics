@@ -87,10 +87,7 @@ while numbers == ["Incorrect path"]:
     elif choice == "Y":
         path = input("Enter path to the file:")
         numbers = readArrayFromFile(path)
-while numbers == []:
-    path = input("Enter path to the file:")
-    numbers = readArrayFromFile(path)
-         
+
 if choice != "N":
     if numbers != []:
         if numbers != "Incorrect path":
