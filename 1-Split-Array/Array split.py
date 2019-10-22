@@ -3,13 +3,17 @@ class num:
 		self.positive = positive
 		self.negative = negative
 def split(numbers):
-	for number in numbers:
-		number = int(number)
-		if number < 0:
-			negative.append(number)
-		else:
-			positive.append(number)
-	return num(positive,negative)
+	try:
+		for number in numbers:
+			number = int(number)
+			if number < 0:
+				negative.append(number)
+			else:
+				positive.append(number)
+		return num(positive,negative)
+	except ValueError:
+		numbers.remove(number)
+		return num(positive,negative)
 positive = []
 negative = []
 numbers = (input("Enter numbers:")).split(",")
