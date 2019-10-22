@@ -1,26 +1,26 @@
-class num:
+class numbers:
 	def __init__(self,positive,negative):
 		self.positive = positive
 		self.negative = negative
-def split(numbers):
+def split(input):
 	try:
-		for number in numbers:
+		for number in input:
 			number = int(number)
 			if number < 0:
 				negative.append(number)
 			else:
 				positive.append(number)
-		return num(positive,negative)
+		return numbers(positive,negative)
 	except ValueError:
-		numbers.remove(number)
-		return num(positive,negative)
+		input.remove(number)
+		return numbers(positive,negative)
 positive = []
 negative = []
-numbers = (input("Enter numbers:")).split(",")
-numbers = split(numbers)
+input = (input("Enter numbers:")).split(",")
+input = split(input)
 if positive != []:
 	print(len(positive))
-	print(sorted(numbers.positive))
+	print(sorted(input.positive))
 if negative != []:
 	print(len(negative))
-	print(sorted(numbers.negative))
+	print(sorted(input.negative))
