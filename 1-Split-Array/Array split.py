@@ -1,35 +1,22 @@
-def split(array, type):
-	positive = []
-	negative = []
-	try :
-		for number in array:
-			number = int(number)
-			if number >= 0:
-				positive.append(number)
-			elif number < 0:
-				negative.append(number)
-		if type == "+":
-			return positive
+class num:
+	def __init__(self,positive,negative):
+		self.positive = positive
+		self.negative = negative
+def split(numbers):
+	for number in numbers:
+		number = int(number)
+		if number < 0:
+			negative.append(number)
 		else:
-			return negative
-	except ValueError:
-		print("'"+str(number)+"'" +" is not int.")
-		array.remove(number)
-		return String
+			positive.append(number)
+	return num(positive,negative)
 positive = []
 negative = []
-error = 0
-String = 0
-array = (input("Enter numbers:")).split(",")
-positive = split(array, "+")	
-negative = split(array, "-")
-while positive == String:
-        positive = split(array, "+")
-        negative = split(array, "-")
+numbers = (input("Enter numbers:")).split(",")
+numbers = split(numbers)
 if positive != []:
 	print(len(positive))
-	print(sorted(positive))
+	print(sorted(numbers.positive))
 if negative != []:
 	print(len(negative))
-	print(sorted(negative))
-		
+	print(sorted(numbers.negative))
