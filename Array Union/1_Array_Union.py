@@ -19,6 +19,7 @@ def array_union(first,second):
 		elif number in second:
 			delete_element(second,number)
 		return []
+#This function is useless.I can delete element with command (array.remove(element))
 def delete_element(array,element):
 	array.remove(element)
 	return array
