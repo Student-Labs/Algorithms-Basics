@@ -1,16 +1,19 @@
 def array_union(first,second):
 	try:
 		result = []
-		for number in first:
-			if number not in second:
-				number = int(number)
-				result.append(number)
-		for number in second:
-				number = int(number)
-				result.append(number)
+		if first != []:
+			for number in first:
+				if number in second:
+					first.remove(number)
+				else:
+					number = int(number)
+					result.append(number)
+		if second != []:
+			for number in second:
+					number = int(number)
+					result.append(number)
 		return result
 	except ValueError:
-		print("Something went wrong.")
 		if number in first:
 			delete_element(first,number)
 		elif number in second:
