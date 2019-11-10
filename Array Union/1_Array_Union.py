@@ -25,4 +25,4 @@ second = (input("Введите числа:")).split(",")
 while result == []:
 	result = array_union(first,second)
 if result != []:
-	print(result)
+	print(sorted(result))
