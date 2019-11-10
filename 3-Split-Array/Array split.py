@@ -7,17 +7,19 @@ def split(input):
 		for number in input:
 			number = int(number)
 			if number < 0:
-				negative.append(number)
+				if number not in negative:
+					negative.append(number)
 			else:
-				positive.append(number)
+				if number not in positive:
+					positive.append(number)
 		return numbers(positive,negative)
 	except ValueError:
-                print(str(number) + " is not integer.")
-                input.remove(number)
-                return split(input)
+		print(str(number) + " is not integer.")
+		input.remove(number)
+		return split(input)
 positive = []
 negative = []
-input = (input("Enter numbers:")).split(",")
+input = input("Enter numbers:").split(",")
 input = split(input)
 if positive != []:
 	print(len(positive))
