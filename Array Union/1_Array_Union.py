@@ -43,7 +43,7 @@ def contains_2(array):
 result = []
 first = (input("Enter numbers:")).split(",")
 second = (input("Enter numbers:")).split(",")
-if result == []:
+while result == []:
 	result = array_union(first,second)
 if result != []:
 	print(sorted(result))
