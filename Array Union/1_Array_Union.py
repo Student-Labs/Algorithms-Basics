@@ -3,10 +3,9 @@ def array_union(first,second):
 		result = []
 		if first != []:
 			for number in first:
-				#I can do it easier (if number in second:first.remove(number))
 				bull = contains(number,second)
 				if bull == True:
-					first.remove(number)
+					delete_element(first,number)
 				else:
 					number = int(number)
 					result.append(number)
@@ -16,7 +15,6 @@ def array_union(first,second):
 					result.append(number)
 		return result
 	except ValueError:
-		#Here i can do the same thing(if number in first:first.remove(number))
 		if number in first:
 			delete_element(first,number)
 		elif number in second:
@@ -32,8 +30,8 @@ def contains(number,second):
 	else:
 		return False
 result = []
-first = (input("Введите числа:")).split(",")
-second = (input("Введите числа:")).split(",")
+first = (input("Enter numbers:")).split(",")
+second = (input("Enter numbers:")).split(",")
 while result == []:
 	result = array_union(first,second)
 if result != []:
