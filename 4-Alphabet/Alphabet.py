@@ -1,34 +1,40 @@
-def print_simbols(columns,type):
+def print_symbols(columns, type):
 	counter = 0
-	result_2 = ''
-	for number in range(range_start-1,range_end):
-		number = chr(number)+ ' '
-		if type == 3:
-			if counter == 64:
+	result = ''
+	cyrillicMaxNumber = 64
+	latinMaxNumber = 52
+	for number in range(alphabetRangeStart-1, alphabetRangeEnd):
+		if type == 2:
+			if counter == latinMaxNumber:
 				break
-		elif type == 2:
-			if counter in range(26,32):
-				number = ''
-			if counter == 56:
-				break
-		if counter % columns == 0:
-			result_2 = result_2 + '\n'
-		result_2 = result_2 + number 
-		counter = counter + 1
-	print(str(result_2))
-print("Choose ASCII symbols and press enter: 1 - All, 2 - Latin, 3 - Cyrillic. To exit press Ctrl-C.\n")
+			if number  not in range(91,97):
+				if counter % columns == 0:
+					result = result + '\n'
+				digit = chr(number)
+				result = result + digit + ' '
+				counter = counter + 1
+		else:
+			if type == 3:
+				if counter == cyrillicMaxNumber:
+					break
+			if counter % columns == 0:
+				result = result + '\n'
+			digit = chr(number)
+			result = result + digit + ' '
+			counter = counter + 1
+	print(str(result))
+print("Choose ASCII symbols and press enter: 1 - All, 2 - Latin, 3 - Cyrillic.")
 type = int(input())
 print("Choose range")
-range_start = int(input("From\n"))
-range_end = int(input("To\n"))
+alphabetRangeStart = int(input("From\n"))
+alphabetRangeEnd = int(input("To\n"))
+cyrillicAlphabetNumber = 1040
+latinAlphabetNumber = 65
 if type == 3:
-	range_start = range_start + 1040
-	range_end = range_end + 1040
+	alphabetRangeStart = alphabetRangeStart + cyrillicAlphabetNumber
+	alphabetRangeEnd = alphabetRangeEnd + cyrillicAlphabetNumber
 elif type == 2:
-        range_start = range_start + 65
-        range_end = range_end + 65
-print(range_start)
-print(range_end)
+	alphabetRangeStart = alphabetRangeStart + latinAlphabetNumber
+	alphabetRangeEnd = alphabetRangeEnd + latinAlphabetNumber
 columns = int(input("Enter numbers of columns:")) 
-print_simbols(columns,type)
-#It`s just a prototype)
+print_symbols(columns, type)
