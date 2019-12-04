@@ -3,15 +3,16 @@ def print_symbols(columns, type,alphabetRangeStart,alphabetRangeEnd):
 	result = ''
 	cyrillicMaxNumber = 64
 	latinMaxNumber = 52
+	latinAlphabetRange = range(91,117)
 	for number in range(alphabetRangeStart-1, alphabetRangeEnd):
 		if type != 1:
-			if number not in range(91,117):
+			if number not in latinAlphabetRange:
 				digit = chr(number)
 				result = result + digit + ' '
 				counter += 1
 				if counter % columns == 0:
 					result += '\n'
-			elif number in range(91,117):
+			elif number in latinAlphabetRange:
 				number = number + 6
 				digit = chr(number)
 				result = result + digit + ' '
