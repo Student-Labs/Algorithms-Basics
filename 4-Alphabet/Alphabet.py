@@ -1,4 +1,4 @@
-def print_symbols(columns, type):
+def print_symbols(columns, type,alphabetRangeStart,alphabetRangeEnd):
 	counter = 0
 	result = ''
 	cyrillicMaxNumber = 64
@@ -8,16 +8,16 @@ def print_symbols(columns, type):
 			if number not in range(91,117):
 				digit = chr(number)
 				result = result + digit + ' '
-				counter = counter + 1
+				counter += 1
 				if counter % columns == 0:
-					result = result + '\n'
+					result += '\n'
 			elif number in range(91,117):
 				number = number + 6
 				digit = chr(number)
 				result = result + digit + ' '
-				counter = counter + 1
+				counter += 1
 				if counter % columns == 0:
-					result = result + '\n'
+					result += '\n'
 			if type == 2:
 				if counter == latinMaxNumber:
 					break
@@ -27,9 +27,9 @@ def print_symbols(columns, type):
 		else:
 			digit = chr(number)
 			result = result + digit + ' '
-			counter = counter + 1
+			counter += 1
 			if counter % columns == 0:
-				result = result + '\n'
+				result += '\n'
 	print(str(result))
 
 print("Choose ASCII symbols and press enter: 1 - All, 2 - Latin, 3 - Cyrillic.")
@@ -46,4 +46,4 @@ elif type == 2:
 	alphabetRangeStart = alphabetRangeStart + latinAlphabetNumber
 	alphabetRangeEnd = alphabetRangeEnd + latinAlphabetNumber
 columns = int(input("Enter numbers of columns:")) 
-print_symbols(columns, type)
+print_symbols(columns, type,alphabetRangeStart,alphabetRangeEnd)
