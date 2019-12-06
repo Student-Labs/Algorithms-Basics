@@ -48,4 +48,4 @@ elif type == 2:
 	alphabetRangeStart = alphabetRangeStart + latinAlphabetNumber
 	alphabetRangeEnd = alphabetRangeEnd + latinAlphabetNumber
 columns = int(input("Enter numbers of columns:")) 
-print_symbols(columns, type,alphabetRangeStart,alphabetRangeEnd)
+printSymbols(columns, type,alphabetRangeStart,alphabetRangeEnd)
