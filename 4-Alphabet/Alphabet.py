@@ -6,24 +6,18 @@ def printSymbols(columns, type,alphabetRangeStart,alphabetRangeEnd):
 	latinNumber = 6
 	latinAlphabetRange = range(91,117)
 	for number in range(alphabetRangeStart-1, alphabetRangeEnd):
-		if type != 1:
-			if number not in latinAlphabetRange:
-				digit = chr(number)
-				result = result + digit + ' '
-				counter += 1
-				if counter % columns == 0:
-					result += '\n'
-			elif number in latinAlphabetRange:
+		if type != 'all':
+			if number in latinAlphabetRange:
 				number += latinNumber
-				digit = chr(number)
-				result = result + digit + ' '
-				counter += 1
-				if counter % columns == 0:
-					result += '\n'
-			if type == 2:
+			digit = chr(number)
+			result = result + digit + ' '
+			counter += 1
+			if counter % columns == 0:
+				result += '\n'
+			if type == 'latin':
 				if counter == latinMaxNumber:
 					break
-			if type == 3:
+			elif type == 'cyrillic':
 				if counter == cyrillicMaxNumber:
 					break
 		else:
@@ -36,15 +30,21 @@ def printSymbols(columns, type,alphabetRangeStart,alphabetRangeEnd):
 
 print("Choose ASCII symbols and press enter: 1 - All, 2 - Latin, 3 - Cyrillic.")
 type = int(input())
+if type == 1:
+        type = 'all'
+elif type == 2:
+        type = 'latin'
+elif type == 3:
+        type = 'cyrillic'
 print("Choose range")
 alphabetRangeStart = int(input("From\n"))
 alphabetRangeEnd = int(input("To\n"))
 cyrillicAlphabetNumber = 1040
 latinAlphabetNumber = 65
-if type == 3:
+if type == 'cyrillic':
 	alphabetRangeStart = alphabetRangeStart + cyrillicAlphabetNumber
 	alphabetRangeEnd = alphabetRangeEnd + cyrillicAlphabetNumber
-elif type == 2:
+elif type == 'latin':
 	alphabetRangeStart = alphabetRangeStart + latinAlphabetNumber
 	alphabetRangeEnd = alphabetRangeEnd + latinAlphabetNumber
 columns = int(input("Enter numbers of columns:")) 
