@@ -1,4 +1,4 @@
-import random
+from random import random
 import time
 import os
 
@@ -98,6 +98,6 @@ if choice != "N":
             desending_sorted_array = quicksort(numbers, "des")
             write_to_file(ascending_sorted_array, path)
             write_to_file(desending_sorted_array, path)
-            print(str(time.process_time())+" Seconds")
+            print(str(time.process_time()) + " Seconds")
             print(ascending_sorted_array)
             print(desending_sorted_array)
