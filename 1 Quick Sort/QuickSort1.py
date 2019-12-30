@@ -2,10 +2,11 @@ import random
 import time
 import os
 
+
 def read_from_file(path):
     numbers = []
     try:
-        file = open(path,'r')
+        file = open(path, 'r')
         file = file.read()
         file = file.split(',')
         text = ""
@@ -26,6 +27,7 @@ def read_from_file(path):
         print("Something went wrong.")
         return["Incorrect path"]
 
+
 def convert_to_int(text):
     intArray = []
     if text == []:
@@ -33,13 +35,14 @@ def convert_to_int(text):
     else:
         for digit in text:
             digit = int(digit)
-            if digit in range (-99999,99999):
+            if digit in range(-99999, 99999):
                 intArray.append(digit)
             else:
                 print("Numbers in array are very big")
                 return ["Incorrect path"]
-        return  intArray
-        
+        return intArray
+
+
 def quicksort(numbers, direction):
     if len(numbers) <= 1:
         return numbers
@@ -60,19 +63,21 @@ def quicksort(numbers, direction):
         else:
             return quicksort(big, "des") + element + quicksort(small, "des")
 
-def write_to_file(array,path):
+
+def write_to_file(array, path):
     if array != []:
         file = os.path.basename(path)
         if array == ascending_sorted_array:
-                file = "Sorted "+ file
-                file = open((file),"tw")
-                file.write(str(array))
-                file.close()
+            file = "Sorted " + file
+            file = open((file), "tw")
+            file.write(str(array))
+            file.close()
         elif array == desending_sorted_array:
-                file = "Reversed sorted " + file 
-                file = open((file),"tw")
-                file.write(str(array))
-                file.close()
+            file = "Reversed sorted " + file
+            file = open((file), "tw")
+            file.write(str(array))
+            file.close()
+
 
 numbers = []
 choice = 0
@@ -89,11 +94,10 @@ while numbers == ["Incorrect path"]:
 if choice != "N":
     if numbers != []:
         if numbers != "Incorrect path":
-            ascending_sorted_array = quicksort(numbers,"asc")
-            desending_sorted_array = quicksort(numbers,"des")
+            ascending_sorted_array = quicksort(numbers, "asc")
+            desending_sorted_array = quicksort(numbers, "des")
             write_to_file(ascending_sorted_array, path)
             write_to_file(desending_sorted_array, path)
             print(str(time.process_time())+" Seconds")
-            print (ascending_sorted_array)
+            print(ascending_sorted_array)
             print(desending_sorted_array)
-
