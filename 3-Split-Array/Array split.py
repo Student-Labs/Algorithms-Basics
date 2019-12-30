@@ -1,6 +1,3 @@
-import random
-
-
 class numbers:
     def __init__(self, positive, negative):
         self.positive = positive
