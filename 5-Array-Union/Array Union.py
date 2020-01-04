@@ -4,10 +4,10 @@ def array_union(first, second):
         if first != ['']:
             first = contains_2(first)
             for number in first:
-                bull = contains(number, second)
-                if bull == True:
+                cond = contains(number, second)
+                if cond is True:
                     delete_element(first, number)
-                elif bull == False:
+                elif cond is False:
                     number = int(number)
                     result.append(number)
         if second != ['']:
@@ -21,7 +21,7 @@ def array_union(first, second):
             first = delete_element(first, number)
         elif number in second:
             second = delete_element(second, number)
-        result = array_union(first,second)
+        result = array_union(first, second)
         return result
 
 
@@ -40,8 +40,8 @@ def contains(number, array):
 def contains_2(array):
     new_array = []
     for element in array:
-        bull = contains(element, new_array)
-        if bull == False:
+        cond = contains(element, new_array)
+        if cond is False:
             new_array.append(element)
     return new_array
 
