@@ -1,4 +1,5 @@
 def array_union(first, second):
+    result = []
     try:
         if first != ['']:
             first = contains_2(first)
@@ -15,14 +16,13 @@ def array_union(first, second):
                 number = int(number)
                 result.append(number)
         return result
-    except Exception:
+    except ValueError:
         if number in first:
             first = delete_element(first, number)
         elif number in second:
             second = delete_element(second, number)
-        print(first)
-        print(second)    
-        return []
+        result = array_union(first,second)
+        return result
 
 
 def delete_element(array, element):
@@ -47,11 +47,8 @@ def contains_2(array):
 
 
 result = []
-first = (input("Enter numbers1:")).split(",")
-second = (input("Enter numbers2:")).split(",")
 while result == []:
+    first = (input("Enter numbers1:")).split(",")
+    second = (input("Enter numbers2:")).split(",")
     result = array_union(first, second)
-    print(first)
-    print(second)
-    break
 print(sorted(result))
