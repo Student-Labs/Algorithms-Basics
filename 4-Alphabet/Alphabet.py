@@ -5,7 +5,7 @@ def printSymbols(columns, type, alphabetRangeStart, alphabetRangeEnd):
     latinMaxNumber = 52
     latinNumber = 6
     latinAlphabetRange = range(91, 117)
-    for number in range(alphabetRangeStart-1, alphabetRangeEnd):
+    for number in range(alphabetRangeStart - 1, alphabetRangeEnd):
         if type != 'all':
             if number in latinAlphabetRange:
                 number += latinNumber
@@ -29,7 +29,7 @@ def printSymbols(columns, type, alphabetRangeStart, alphabetRangeEnd):
     print(str(result))
 
 
-print("Choose ASCII symbols and press enter: 1 - All, 2 - Latin, 3 - Cyrillic.")
+print("""Choose ASCII symbols and press enter: 1 - All, 2 - Latin, 3 - Cyrillic.""")
 type = int(input())
 if type == 1:
     type = 'all'
