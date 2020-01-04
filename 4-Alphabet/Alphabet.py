@@ -29,7 +29,8 @@ def printSymbols(columns, type, alphabetRangeStart, alphabetRangeEnd):
     print(str(result))
 
 
-print("""Choose ASCII symbols and press enter: 1 - All, 2 - Latin, 3 - Cyrillic.""")
+print("""Choose ASCII symbols and press enter:
+ 1 - All, 2 - Latin, 3 - Cyrillic.""")
 type = int(input())
 if type == 1:
     type = 'all'
