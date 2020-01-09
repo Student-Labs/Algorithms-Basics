@@ -24,7 +24,7 @@ def array_union(first, second):
         return result
 
 
-def contains(array):
+def delete_duplicated_elements(array):
     new_array = []
     for element in array:
         if element not in new_array:
