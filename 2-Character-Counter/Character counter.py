@@ -5,8 +5,8 @@ def symbol_counter(text):
         for element in text:
             if symbol == element:
                 counter += 1
-        element = str(symbol)+'-'+str(counter) 
-        counter = 0 
+        element = str(symbol) + '-' + str(counter)
+        counter = 0
         array.append(element)
         array = delete_duplicated_elements(array)
     return array
