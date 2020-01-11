@@ -2,7 +2,7 @@ def array_union(first, second):
     result = []
     try:
         if first != ['']:
-            first = contains(first)
+            first = delete_duplicated_elements(first)
             for number in first:
                 if number in second:
                     first.remove(number)
@@ -10,7 +10,7 @@ def array_union(first, second):
                     number = int(number)
                     result.append(number)
         if second != ['']:
-            second = contains(second)
+            second = delete_duplicated_elements(second)
             for number in second:
                 number = int(number)
                 result.append(number)
