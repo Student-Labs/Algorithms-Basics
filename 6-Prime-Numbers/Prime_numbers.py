@@ -1,15 +1,12 @@
 def find_prime_numbers(range_start, range_end):
     result = []
-    numbers = [True] * range_end
-    numbers[1] = numbers[0] = False
-    for number in range(2, range_end):
-        if numbers[number]:
-            for element in range(2 * number, range_end, number):
-                numbers[element] = False
-    for number in range(range_end):
-        if numbers[number]:
-            if number >= range_start:
-                result.append(number)
+    for number in range(range_start, range_end):
+        for element in range(2,number):
+            if number % element >= 1:
+                if element == number-1:
+                    result.append(number)
+            else:
+                break
     return result
 
 
