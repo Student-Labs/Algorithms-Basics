@@ -1,6 +1,6 @@
 def find_prime_numbers(range_start, range_end):
     result = []
-    for number in range(range_start, range_end):
+    for number in range(range_start, range_end + 1):
         if number == 2:
             result.append(number)
         for element in range(2, number):
