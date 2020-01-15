@@ -11,15 +11,17 @@ def find_prime_numbers(range_start, range_end):
                 break
     return result
 
+
 def sum(result):
-    sum= 0
+    sum = 0
     for number in result:
         sum = sum + number
     return sum
-    
+
+
 range_start = int(input("Input start number:\n"))
 range_end = int(input("Input end number:\n"))
 result = find_prime_numbers(range_start, range_end)
 sum_of_prime_numbers = sum(result)
-print(sum_of_prime_numbers)
 print(result)
+print(sum_of_prime_numbers)
