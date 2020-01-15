@@ -3,7 +3,7 @@ def find_prime_numbers(range_start, range_end):
     for number in range(range_start, range_end):
         for element in range(2, number):
             if number % element >= 1:
-                if element == number-1:
+                if element == number - 1:
                     result.append(number)
             else:
                 break
