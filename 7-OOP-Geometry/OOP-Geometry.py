@@ -29,7 +29,7 @@ class Triangle:
         half_perimeter = Triangle.get_perimeter(self) * 0.5
         self.result = half_perimeter * \
             (half_perimeter - self.a) * \
-            (half_perimeter-self.b)*(half_perimeter-self.c)
+            (half_perimeter-self.b) * (half_perimeter-self.c)
         return round(self.result, 2)
 
 
