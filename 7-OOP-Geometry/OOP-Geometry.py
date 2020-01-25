@@ -62,7 +62,7 @@ class Square:
 circle = Circle(12)
 square = Square(12)
 triangle = Triangle(2, 3, 4)
-rectangle = Rectangle(2,5)
+rectangle = Rectangle(2, 5)
 print("Rectangle area - " + str(rectangle.get_area()))
 print("Rectangle perimeter - " + str(rectangle.get_perimeter()))
 print("Triangle area - " + str(triangle.get_area()))
@@ -71,4 +71,3 @@ print("Circle area - " + str(round(circle.get_area())))
 print("Circle perimeter - " + str(circle.get_perimeter()))
 print("Square area - " + str(square.get_area()))
 print("Square perimeter - " + str(square.get_perimeter()))
-
