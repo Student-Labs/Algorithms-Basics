@@ -26,7 +26,7 @@ class Triangle:
         half_perimeter = self.get_perimeter() * 0.5
         return half_perimeter * \
             (half_perimeter - self.a) * \
-            (half_perimeter-self.b) * (half_perimeter-self.c)
+            (half_perimeter - self.b) * (half_perimeter - self.c)
 
 
 class Circle:
