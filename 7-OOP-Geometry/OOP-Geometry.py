@@ -35,7 +35,6 @@ class Circle:
 
     def get_area(self):
         return round(math.pi, 2) * self.radius * self.radius
-         
 
     def get_perimeter(self):
         return self.radius * 2*round(math.pi, 2)
@@ -47,11 +46,9 @@ class Square:
 
     def get_area(self):
         return self.side * self.side
-         
 
     def get_perimeter(self):
         return self.side * 4
-        
 
 
 circle = Circle(12)
@@ -60,7 +57,7 @@ triangle = Triangle(2, 3, 4)
 rectangle = Rectangle(2, 5)
 print("Rectangle area - " + str(rectangle.get_area()))
 print("Rectangle perimeter - " + str(rectangle.get_perimeter()))
-print("Triangle area - " + str(round(triangle.get_area(),2)))
+print("Triangle area - " + str(round(triangle.get_area(), 2)))
 print("Triange perimeter - " + str(triangle.get_perimeter()))
 print("Circle area - " + str(round(circle.get_area())))
 print("Circle perimeter - " + str(circle.get_perimeter()))
