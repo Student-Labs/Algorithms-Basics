@@ -37,7 +37,7 @@ class Circle:
         return round(math.pi, 2) * self.radius * self.radius
 
     def get_perimeter(self):
-        return self.radius * 2*round(math.pi, 2)
+        return self.radius * 2 * round(math.pi, 2)
 
 
 class Square:
