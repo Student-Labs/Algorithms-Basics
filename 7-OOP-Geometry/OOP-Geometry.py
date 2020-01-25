@@ -23,7 +23,7 @@ class Square:
         return self.result
 
     def get_perimeter(self):
-        self.result = (self.side + self.side)*2
+        self.result = self.side *4
         return self.result
 
 
@@ -32,4 +32,4 @@ square = Square(12)
 print("Circle area - " + str(round(circle.get_area())))
 print("Square area - " + str(square.get_area()))
 print("Square perimeter - " + str(square.get_perimeter()))
-print("Corcle peremeter - " + str(circle.get_perimeter()))
+print("Corcle perimeter - " + str(circle.get_perimeter()))
