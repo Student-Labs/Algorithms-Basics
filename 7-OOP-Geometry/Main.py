@@ -1,7 +1,7 @@
 from Circle import Circle
-from Rectangle import *
-from Triangle import *
-from Square import *
+from Rectangle import Rectangle
+from Triangle import Triangle
+from Square import Square
 circle = Circle(12)
 square = Square(12)
 triangle = Triangle(2, 3, 4)
