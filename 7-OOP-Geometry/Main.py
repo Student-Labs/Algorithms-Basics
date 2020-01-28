@@ -1,4 +1,4 @@
-from Circle import *
+from Circle import Circle
 from Rectangle import *
 from Triangle import *
 from Square import *
