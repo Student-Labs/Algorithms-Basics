@@ -25,7 +25,7 @@ class List:
         new_item = Item(number)
         # if there are no elements in the list, self.head is None
         if self.head is None:
-           # so if list is empty new_item will be the 1st element, so...
+            # so if list is empty new_item will be the 1st element, so...
             self.head = new_item
             self.tail = new_item
             return
