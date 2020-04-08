@@ -11,10 +11,10 @@ class List:
         self.counter = 0
 
     def __str__(self):
-        if self.head != None:
+        if self.head is not None:
             current = self.head
             out = 'LinkedList [\n' + str(current.data) + '\n'
-            while current.next != None:
+            while current.next is not None:
                 current = current.next
                 out += str(current.data) + '\n'
             return out + ']' + '\n' + str(self.counter)
@@ -30,15 +30,6 @@ class List:
             self.tail = new_item
             return
 
-        # otherwise, if list is not empty we need to go to the last element of it.
-        # But everything we know is **self.head**.
-        # So how we can do that? **self.head** is type of **Item**, so it has 2 attributes: 1. data 2. next.
-        # So, if we know **self.head** it means we know **self.head.data** and **self.head.next**.
-        # **self.head.next** is type of **Item** as well.
-        # So, , if we know **self.head.next** it means we know **self.head.next.data** and
-        # **self.head.next.next** etc.
-        # We can move next and next and finally we will come to the end (**element.next** will be **None**)
-
         item = self.tail
         item.next = new_item
         self.tail = new_item
@@ -46,13 +37,13 @@ class List:
     def delete(self, number):
         item = self.head
         prev = None
-        while item != None and item.data != number:
+        while item is not None and item.data is not number:
             prev = item
             item = item.next
-        if item == None:
+        if item is None:
             return
         item = item.next
-        if prev != None:
+        if prev is not None:
             prev.next = item
         else:
             self.head = item
@@ -60,7 +51,7 @@ class List:
     def count(self):
         self.counter = 0
         item = self.head
-        while item != None:
+        while item is not None:
             self.counter += 1
             item = item.next
         return self.counter
@@ -69,11 +60,11 @@ class List:
         if sum <= self.counter:
             item = self.head
             prev = None
-            while self.counter != sum:
+            while self.counter is not sum:
                 prev = item
                 item = item.next
                 self.counter -= 1
-            if prev != None:
+            if prev is not None:
                 item.next = None
                 prev.next = None
             else:
