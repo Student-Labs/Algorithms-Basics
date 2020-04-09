@@ -13,12 +13,12 @@ class List:
     def __str__(self):
         if self.head is not None:
             current = self.head
-            out = 'LinkedList [\n' + str(current.data) + '\n'
+            out = 'List [\n' + str(current.data) + '\n'
             while current.next is not None:
                 current = current.next
                 out += str(current.data) + '\n'
             return out + ']' + '\n' + str(self.counter)
-        return 'LinkedList []'
+        return 'List []'
 
     def append(self, number):
         # first we need to create new Item of the List
@@ -56,20 +56,19 @@ class List:
             item = item.next
         return self.counter
 
-    def trim(self, sum):
-        if sum <= self.counter:
+    def trim(self, numberOfItemsToTrim):
+        if numberOfItemsToTrim <= self.counter:
             item = self.head
             prev = None
-            while self.counter is not sum:
+            while self.counter is not numberOfItemsToTrim:
                 prev = item
                 item = item.next
                 self.counter -= 1
-            if prev is not None:
+            if prev is None:
+                self.head = None
+            else:
                 item.next = None
                 prev.next = None
-            else:
-                self.head = None
-        return
 
 
 L = List()
@@ -79,5 +78,5 @@ L.append(30)
 L.append(40)
 L.append(50)
 L.count()
-L.trim(5)
+L.trim(1)
 print(L)
