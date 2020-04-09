@@ -19,7 +19,7 @@ class Complex:
             x2 = other.x ** 2 + other.y ** 2
             y1 = other.x * self.y - self.x * other.y
             y2 = other.x ** 2 + other.y ** 2
-            return Complex(x1/x2, y1/y2)
+            return Complex(x1 / x2, y1 / y2)
 
     def __str__(self):
         return '{} + {}i'.format(self.x, self.y)
