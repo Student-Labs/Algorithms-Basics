@@ -25,8 +25,8 @@ class Complex:
         return '{} + {}i'.format(self.x, self.y)
 
 
-x1 = Complex(4, 2)
-x2 = Complex(3, 1)
+x1 = Complex(13, -1)
+x2 = Complex(7, -6)
 print(str(x1 + x2))
 print(str(x1 - x2))
 print(str(x1 / x2))
