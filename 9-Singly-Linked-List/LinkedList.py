@@ -73,7 +73,7 @@ class List:
 
 
 L = List()
-L.append(10,20, 30,40,50)
-L.delete(10,20)
+L.append(10, 20, 30, 40, 50)
+L.delete(10, 20)
 L.count()
 print(L)
