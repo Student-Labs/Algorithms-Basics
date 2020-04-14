@@ -20,33 +20,34 @@ class List:
             return out + ']' + '\n' + str(self.counter)
         return 'List []'
 
-    def append(self, number):
+    def append(self, *numbers):
+        for number in numbers:
         # first we need to create new Item of the List
-        new_item = Item(number)
-        # if there are no elements in the list, self.head is None
-        if self.head is None:
-            # so if list is empty new_item will be the 1st element, so...
-            self.head = new_item
-            self.tail = new_item
-            return
+            new_item = Item(number)
+            # if there are no elements in the list, self.head is None
+            if self.head is None:
+                # so if list is empty new_item will be the 1st element, so...
+                self.head = new_item
+                self.tail = new_item
+            else:
+                item = self.tail
+                item.next = new_item
+                self.tail = new_item
 
-        item = self.tail
-        item.next = new_item
-        self.tail = new_item
-
-    def delete(self, number):
-        item = self.head
-        prev = None
-        while item is not None and item.data is not number:
-            prev = item
+    def delete(self, *numbers):
+        for number in numbers:
+            item = self.head
+            prev = None
+            while item is not None and item.data is not number:
+                prev = item
+                item = item.next
+            if item is None:
+                return
             item = item.next
-        if item is None:
-            return
-        item = item.next
-        if prev is not None:
-            prev.next = item
-        else:
-            self.head = item
+            if prev is not None:
+                prev.next = item
+            else:
+                self.head = item
 
     def count(self):
         self.counter = 0
@@ -72,11 +73,7 @@ class List:
 
 
 L = List()
-L.append(10)
-L.append(20)
-L.append(30)
-L.append(40)
-L.append(50)
+L.append(10,20, 30,40,50)
+L.delete(10,20)
 L.count()
-L.trim(1)
 print(L)
