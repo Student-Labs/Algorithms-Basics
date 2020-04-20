@@ -75,7 +75,7 @@ class List:
         prev = None
         counter = 0
         number = Item(number)
-        while counter != position-1:
+        while counter != position - 1:
             prev = item
             item = item.next
             counter += 1
@@ -84,10 +84,9 @@ class List:
             number.next = item
 
 
-
 L = List(1, 2, 4, 3)
 L.append(10, 20, 30, 40, 50)
 L.delete(10, 20)
-L.insert(5,5)
+L.insert(5, 5)
 L.count()
 print(L)
