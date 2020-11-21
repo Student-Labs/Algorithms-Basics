@@ -69,6 +69,7 @@ class List:
             else:
                 item.next = None
                 prev.next = None
+
     def insert(self, number, position):
         item = self.head
         prev = None
@@ -87,6 +88,7 @@ class List:
         else:
             prev.next = number
             number.next = item
+
 
 L = List(1, 2, 4, 3)
 L.append(10, 20, 30, 40, 50)
