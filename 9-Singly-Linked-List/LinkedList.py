@@ -88,10 +88,12 @@ class List:
         else:
             prev.next = number
             number.next = item
+
+
 L = List(1, 2, 4, 3)
 L.append(10, 20, 30, 40, 50)
 L.delete(10, 20)
 L.insert(5, 1)
-L.insert(80,10)
+L.insert(80, 10)
 L.count()
 print(L)
