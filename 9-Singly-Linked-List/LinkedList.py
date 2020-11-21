@@ -77,7 +77,7 @@ class List:
         var = 1
         number = Item(number)
         lenght = L.count()
-        while counter < position-var and counter < lenght:
+        while counter < position - var and counter < lenght:
             prev = item
             item = item.next
             counter += 1
