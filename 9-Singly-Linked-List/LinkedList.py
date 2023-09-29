@@ -5,10 +5,12 @@ class Item:
 
 
 class List:
-    def __init__(self):
+    def __init__(self, *numbers):
         self.head = None
         self.tail = None
         self.counter = 0
+        for number in numbers:
+            self.append(number)
 
     def __str__(self):
         if self.head is not None:
@@ -68,9 +70,30 @@ class List:
                 item.next = None
                 prev.next = None
 
+    def insert(self, number, position):
+        item = self.head
+        prev = None
+        counter = 0
+        var = 1
+        number = Item(number)
+        lenght = L.count()
+        while counter < position - var and counter < lenght:
+            prev = item
+            item = item.next
+            counter += 1
+        if position == 1:
+            self.head = number
+            number.next = item
 
-L = List()
+        else:
+            prev.next = number
+            number.next = item
+
+
+L = List(1, 2, 4, 3)
 L.append(10, 20, 30, 40, 50)
 L.delete(10, 20)
+L.insert(5, 1)
+L.insert(80, 10)
 L.count()
 print(L)
